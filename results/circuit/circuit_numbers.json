@@ -1,0 +1,54 @@
+{
+ "corners": {
+  "HP_Hz": 0.48,
+  "LP_Hz": 4.82,
+  "stage_gain": 10.0
+ },
+ "k=1.0": {
+  "peak_dB": 38.3,
+  "peak_x": 83,
+  "f_lo_3dB": 0.58,
+  "f_hi_3dB": 3.98,
+  "dB_at_0.1Hz": 12.3,
+  "dB_at_15Hz": 19.4,
+  "dB_at_50Hz": -0.7,
+  "dB_at_1.5Hz": 38.3,
+  "rel_15Hz_vs_peak": -18.9,
+  "rel_50Hz_vs_peak": -39.1
+ },
+ "k=0.5": {
+  "peak_dB": 31.7,
+  "peak_x": 39,
+  "f_lo_3dB": 0.57,
+  "f_hi_3dB": 3.96,
+  "dB_at_0.1Hz": 6.2,
+  "dB_at_15Hz": 12.8,
+  "dB_at_50Hz": -7.4,
+  "dB_at_1.5Hz": 31.7,
+  "rel_15Hz_vs_peak": -19.0,
+  "rel_50Hz_vs_peak": -39.1
+ },
+ "k=0.1": {
+  "peak_dB": 18.1,
+  "peak_x": 8,
+  "f_lo_3dB": 0.58,
+  "f_hi_3dB": 3.97,
+  "dB_at_0.1Hz": -7.7,
+  "dB_at_15Hz": -0.8,
+  "dB_at_50Hz": -20.9,
+  "dB_at_1.5Hz": 18.1,
+  "rel_15Hz_vs_peak": -18.9,
+  "rel_50Hz_vs_peak": -39.1
+ },
+ "hysteresis_mV": 51,
+ "divider": {
+  "ratio": 0.254,
+  "Rthev_k": 74.6
+ },
+ "led_mA": 5.7,
+ "threshold_range_V": [
+  1.44,
+  3.56
+ ],
+ "Vref": 2.5
+}

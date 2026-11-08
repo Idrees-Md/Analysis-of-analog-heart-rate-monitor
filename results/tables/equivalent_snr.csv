@@ -1,0 +1,8 @@
+recording,median_prominence,equivalent_snr_db
+rest_01,3.29,not above noise-only 95th percentile
+rest_02,2.13,not above noise-only 95th percentile
+rest_03,2.23,not above noise-only 95th percentile
+strapped_01,2.15,not above noise-only 95th percentile
+strapped_02,2.81,not above noise-only 95th percentile
+noise_01,2.08,not above noise-only 95th percentile
+paper_01,2.06,not above noise-only 95th percentile

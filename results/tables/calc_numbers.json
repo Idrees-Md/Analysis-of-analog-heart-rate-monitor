@@ -1,0 +1,81 @@
+{
+ "X90": {
+  "FFT peak (0.7-3.5 Hz)": -1.1489361702127647,
+  "FFT peak (50-110 bpm)": -7.304347826086955,
+  "Autocorrelation": 5.15492957746479,
+  "Harmonic product spectrum": -6.085714285714285
+ },
+ "nf_rms": 8.662957828184034,
+ "no_rms": 4.023122527198136,
+ "raw_std_finger_median": 64.53835162821787,
+ "REAL": {
+  "rest_01": 3.289739756876101,
+  "rest_02": 2.128539350046011,
+  "rest_03": 2.232925078778442,
+  "strapped_01": 2.1450003144266505,
+  "strapped_02": 2.805220471847708,
+  "noise_01": 2.0821732594752467,
+  "paper_01": 2.061979653550067
+ },
+ "prom_noise_finger": [
+  2.38276916991126,
+  4.643385629351099
+ ],
+ "prom_noise_nofinger": [
+  2.069115792176884,
+  2.448521216205745
+ ],
+ "med": [
+  2.4552210414568227,
+  2.852104657900054,
+  4.047145951324294,
+  5.7207980821390585,
+  11.975649565078736,
+  17.380965419434165,
+  28.04351982206142
+ ],
+ "eq": [
+  {
+   "recording": "rest_01",
+   "median_prominence": 3.29,
+   "equivalent_snr_db": "not above noise-only 95th percentile"
+  },
+  {
+   "recording": "rest_02",
+   "median_prominence": 2.13,
+   "equivalent_snr_db": "not above noise-only 95th percentile"
+  },
+  {
+   "recording": "rest_03",
+   "median_prominence": 2.23,
+   "equivalent_snr_db": "not above noise-only 95th percentile"
+  },
+  {
+   "recording": "strapped_01",
+   "median_prominence": 2.15,
+   "equivalent_snr_db": "not above noise-only 95th percentile"
+  },
+  {
+   "recording": "strapped_02",
+   "median_prominence": 2.81,
+   "equivalent_snr_db": "not above noise-only 95th percentile"
+  },
+  {
+   "recording": "noise_01",
+   "median_prominence": 2.08,
+   "equivalent_snr_db": "not above noise-only 95th percentile"
+  },
+  {
+   "recording": "paper_01",
+   "median_prominence": 2.06,
+   "equivalent_snr_db": "not above noise-only 95th percentile"
+  }
+ ],
+ "Hf": {
+  "4": 0.9993684583557269,
+  "17": 0.9886275655860768,
+  "50": 0.9040294042680403,
+  "100": 0.6472135954999579
+ },
+ "pk3": 2.899879171701179
+}

@@ -1,0 +1,8 @@
+recording,condition,samples,late_samples,mean_counts,std_counts,pct_below_0p5Hz,pct_0p5_4Hz,pct_4_10Hz,pct_10_40Hz,pct_40_100Hz,top_peak_above_4Hz,inband_rms_counts,median_prominence
+rest_01,"fingertip, rest (200 Hz direct)",24001,0,2036.3,82.7,15.0,2.7,2.2,50.8,29.3,16.2,10.99,3.29
+rest_02,"fingertip, rest (1 kHz avg to 200 Hz)",23973,60,1837.4,96.9,7.9,1.4,9.3,74.5,6.8,12.0,11.16,2.13
+rest_03,"fingertip, rest (hand count ~78 bpm)",23966,59,1761.8,80.3,25.5,1.1,2.1,66.3,5.1,14.3,6.97,2.23
+strapped_01,strapped fingertip,23966,59,2033.0,87.7,5.8,1.0,1.9,84.2,7.0,16.6,7.83,2.15
+strapped_02,strapped fingertip,23966,59,2088.4,74.9,25.5,2.1,1.5,64.3,6.6,17.6,9.2,2.81
+noise_01,"no finger, covered",23973,60,1683.8,6.8,11.5,36.0,35.7,9.3,7.6,4.8,3.28,2.08
+paper_01,"against paper, no reflection",23965,60,1684.9,8.6,10.2,48.4,26.1,12.0,3.2,5.8,4.69,2.06
