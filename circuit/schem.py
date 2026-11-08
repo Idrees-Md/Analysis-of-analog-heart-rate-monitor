@@ -1,0 +1,93 @@
+import schemdraw, schemdraw.elements as e
+schemdraw.use('matplotlib')
+import matplotlib; matplotlib.use("Agg")
+with schemdraw.Drawing(show=False, dpi=190) as d:
+    d.config(unit=2.4, fontsize=10, font='DejaVu Sans')
+    # ---------- Stage 1 ----------
+    d += e.Dot(open=True).label('HW-827\nS (output)','left')
+    d += e.Capacitor(polar=True).right().reverse().label('C1 10µF',loc='top')
+    d += e.Resistor().right().label('R1 33k',loc='top')
+    d += e.Line().right(0.6); jin1=d.here
+    d += (U1:=e.Opamp(leads=True).anchor('in1').label('U1A\nLM358','center',ofst=(0.1,0)).scale(1))
+    # feedback
+    d.push()
+    d += e.Line().at(jin1).up(2.2)
+    d += e.Resistor().right().tox(U1.out+0.8).label('Rf1 330k',loc='top')
+    d += e.Line().down().toy(U1.out)
+    d.pop()
+    d.push()
+    d += e.Line().at(jin1).up(1.1)
+    d += e.Capacitor().right().tox(U1.out+0.8).label('Cf1 100n',loc='bottom')
+    d += e.Line().down().toy(U1.out)
+    d.pop()
+    d += e.Line().at(U1.out).right(0.8); n1=d.here
+    d += e.Dot().at(U1.in2).label('Vref',loc='left',ofst=(-0.1,0))
+    d += e.Line().at(U1.in2).left(0.4)
+    # ---------- gain preset ----------
+    d += e.Line().at(n1).right(0.5)
+    d += (P:=e.Potentiometer().down().label('RV1 10k\n(gain)','right',ofst=(0.15,0)))
+    d += e.Ground()
+    d += e.Line().at(P.tap).right(0.5)
+    d += e.Capacitor(polar=True).right().label('C2 10µF',loc='top')
+    d += e.Resistor().right().label('R2 33k',loc='top')
+    d += e.Line().right(0.6); jin2=d.here
+    d += (U2:=e.Opamp(leads=True).anchor('in1').label('U1B\nLM358','center',ofst=(0.1,0)))
+    d.push()
+    d += e.Line().at(jin2).up(2.2)
+    d += e.Resistor().right().tox(U2.out+0.8).label('Rf2 330k',loc='top')
+    d += e.Line().down().toy(U2.out)
+    d.pop()
+    d.push()
+    d += e.Line().at(jin2).up(1.1)
+    d += e.Capacitor().right().tox(U2.out+0.8).label('Cf2 100n',loc='bottom')
+    d += e.Line().down().toy(U2.out)
+    d.pop()
+    d += e.Line().at(U2.out).right(0.8); n2=d.here
+    d += e.Dot().at(U2.in2).label('Vref',loc='left',ofst=(-0.1,0))
+    d += e.Line().at(U2.in2).left(0.4)
+    d += e.Dot().at(n2).label('Vsig',loc='top')
+    # ---------- ESP8266 divider branch ----------
+    d.push()
+    d += e.Line().at(n2).down(2.5)
+    d += e.Resistor().down().label('200k','right')
+    d += e.Resistor().down().label('47k','right')
+    d += e.Resistor().down().label('47k','right'); jd=d.here
+    d += e.Dot()
+    d += e.Line().right(1.2).label('to ESP8266 A0','right')
+    d += e.Dot(open=True)
+    d += e.Resistor().at(jd).down().label('100k','right')
+    d += e.Ground()
+    d.pop()
+    # ---------- comparator branch ----------
+    d += e.Line().at(n2).right(1.0)
+    d += e.Resistor().right().label('R3 10k',loc='top')
+    d += e.Line().right(0.6); jc=d.here
+    d += (U3:=e.Opamp(leads=True).anchor('in2').label('U2A\nLM358','center',ofst=(0.1,0)))
+    d.push()
+    d += e.Line().at(jc).down(2.0)
+    d += e.Resistor().right().tox(U3.out+0.8).label('R4 680k (hysteresis)',loc='bottom')
+    d += e.Line().up().toy(U3.out)
+    d.pop()
+    d += e.Line().at(U3.out).right(0.8)
+    d += e.Resistor().right().label('R5 10k',loc='top')
+    d += (Q:=e.BjtNpn().anchor('base').label('Q1 BC547','right',ofst=(0.15,0)))
+    d += e.Line().at(Q.emitter).down(0.4)
+    d += e.Ground()
+    cx,cy=Q.collector
+    d += e.Vdd().at((cx,cy+4.2)).label('+5V','top')
+    d += e.Resistor().at((cx,cy+4.2)).down().length(1.6).label('R6 470Ω','left')
+    d += e.LED().down().length(1.6).label('beat LED','left')
+    d += e.Line().to(Q.collector)
+    # threshold divider above the comparator
+    ix,iy=U3.in1
+    bx=ix-1.3
+    d += e.Vdd().at((bx,iy+5.0)).label('+5V','top')
+    d += e.Resistor().at((bx,iy+5.0)).down().length(1.5).label('6.8k','right')
+    d += (T:=e.Potentiometer().down().length(1.5))
+    d += e.Resistor().down().length(1.5).label('6.8k','right')
+    d += e.Ground()
+    d += e.Label().at((T.tap[0]-1.3,T.tap[1])).label('RV2 10k\n(threshold)',fontsize=10)
+    d += e.Line().at(T.tap).right(0.7).dot()
+    d += e.Line().down().toy(iy)
+    d += e.Line().right().tox(ix)
+    d.save('results/circuit/schematic_afe.png')
